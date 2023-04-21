@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-    mode: 'development',
+  mode: 'development',
   entry: {
     index: path.resolve(__dirname, 'src/index.js'),
   },
@@ -17,60 +17,60 @@ module.exports = {
       return `${filepath}/[name][ext]`;
     },
   },
-  devServer :{
-    static:{
-        directory: path.resolve(__dirname, 'dist')
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, 'dist')
     },
     port: 5000,
     open: true,
     hot: true,
     compress: true,
-    historyApiFallback: true, 
+    historyApiFallback: true,
 
   },
 
   module: {
-    rules:[
-        {
-            test: /\.scss|\.css$/,
-            use: ['style-loader', 'css-loader', 'sass-loader'],
-        },
-        {
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env'],
-                }
-            }
-        },
-        {
-            test: /\.(png|svg|jpg|jpeg|gif|ico|mp3)$/i,
-            type: 'asset'
-        },
-        {
-          test: /\.(woff|woff2|eot|ttf|otf)$/i,
-          type: 'asset',
-        },
+    rules: [
+      {
+        test: /\.scss|\.css$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          }
+        }
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif|ico|mp3)$/i,
+        type: 'asset'
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset',
+      },
 
     ],
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-        title:'test-tree',
-        filename:'index.html',
-        template: 'src/index.html',
-        chunks: ['index'],
+      title: 'test-tree',
+      filename: 'index.html',
+      template: 'src/index.html',
+      chunks: ['index'],
     }),
-        new CopyPlugin({
-        patterns: [
-            {
-              from: "./src/assets/img",
-              to: "assets/img",
-            },
-          ],
+    new CopyPlugin({
+      patterns: [
+        {
+          from: "./src/assets/img",
+          to: "assets/img",
+        },
+      ],
     }),
   ],
 
