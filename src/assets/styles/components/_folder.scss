@@ -35,8 +35,23 @@
       margin: 0rem;
     }
   
-    &__img {
-      width: 1rem;
+    &__span {
+      width: 1.5rem;
+      height: 1.5rem;
+      background: url(../../assets/img/folder.png);
+      background-size: contain;
+    }
+
+    &__span_active {
+      background: url(../../assets/img/open-folder.png);
+      background-size: contain;
+    }
+    
+    &__file {
+      width: 1.5rem;
+      height: 1.5rem;
+      background: url(../../assets/img/file.png);
+      background-size: contain;
     }
   
     &__description {
